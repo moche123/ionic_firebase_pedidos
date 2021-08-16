@@ -2,20 +2,39 @@
   <ion-split-pane contentId="main">
     <!--  the side menu  -->
     <ion-menu contentId="main" menuId="principal">
+
       <ion-header>
         <ion-toolbar>
           <ion-title class="subtitulo">Menu</ion-title>
         </ion-toolbar>
       </ion-header>
-      <ion-content>
-        <ion-menu-toggle autoHide=false>
 
+
+      <ion-content>
+
+        <ion-menu-toggle autoHide=false>
+          <ion-item button=true default=true [routerLink]="['/']">
+            <ion-label class="normal">Tienda</ion-label>
+            <ion-icon slot="start" name="storefront-sharp"></ion-icon>
+          </ion-item>
+        </ion-menu-toggle>
+
+        <ion-menu-toggle autoHide=false>
+          <ion-item button=true default=true [routerLink]="['/carrito']">
+            <ion-label class="normal">Cuenta</ion-label>
+            <ion-icon slot="start" name="logo-usd"></ion-icon>
+          </ion-item>
+        </ion-menu-toggle>
+
+        <ion-menu-toggle autoHide=false>
           <ion-item button=true detail=true [routerLink]="['/set-productos']" >
             <ion-label class="normal">Configuracion de productos</ion-label>
             <ion-icon slot="start" name="create-sharp"></ion-icon>
           </ion-item>
         </ion-menu-toggle>
+
       </ion-content>
+
     </ion-menu>
   
     <!-- the main content -->

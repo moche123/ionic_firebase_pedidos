@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { MenuController } from '@ionic/angular';
+import { Producto } from 'src/app/models';
+import { FirestoreService } from 'src/app/services/firestore.service';
 
 @Component({
   selector: 'app-home',
@@ -7,8 +10,28 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  private path = 'Productos/'
 
-  ngOnInit() {}
+  productos: Producto[] = [];
+  constructor( 
+    public menuController:MenuController,
+    public firestoreService:FirestoreService
+     ) { 
+     }
+
+  ngOnInit() {
+    this.loadProductos()
+
+  }
+
+  openMenu() {
+    this.menuController.toggle('principal')
+  }
+
+  loadProductos(){
+    this.firestoreService.getCollection<Producto>( this.path ).subscribe( res => {
+      this.productos = res
+    } ) 
+  }
 
 }
