@@ -15,7 +15,7 @@
 <ion-content>
 
   <div style="text-align: end; margin: 10px;">
-    <ion-button (click)="nuevo()" class="normal" color="light">Nuevo</ion-button>
+    <ion-button (click)="nuevo()" class="normal" color="primary">Nuevo</ion-button>
     <ion-button style="margin: 30px;"  color="danger" (click)="guardarProducto()">
       Guardar
     </ion-button>
@@ -73,12 +73,12 @@
 
 <!-- <input (change)="addNew($event)" id="file-upload" type="file" accept="image/*"> -->
 
-
+  <hr>
   <ion-item *ngFor="let producto of productos">
     <ion-label class="normal">{{producto.nombre}}</ion-label>
     <ion-buttons slot="end">
       <ion-button (click)="newProducto = producto; enableNewProducto=true">
-        <ion-icon slot="icon-only" name="create-sharp" ></ion-icon>
+        <ion-icon slot="icon-only" name="create-sharp" color="primary"></ion-icon>
       </ion-button>
       <ion-button (click)="deleteProducto(producto)">
         <ion-icon slot="icon-only" name="trash-bin" color="danger"  ></ion-icon>
