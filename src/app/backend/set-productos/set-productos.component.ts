@@ -131,7 +131,7 @@ export class SetProductosComponent implements OnInit {
     const toast = await this.toastController.create({
       message: msg,
       // cssClass: 'normal',
-      duration: 2000
+      duration: 1000
     });
     toast.present();
   }

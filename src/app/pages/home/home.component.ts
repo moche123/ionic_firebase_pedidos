@@ -13,25 +13,23 @@ export class HomeComponent implements OnInit {
   private path = 'Productos/'
 
   productos: Producto[] = [];
-  constructor( 
-    public menuController:MenuController,
-    public firestoreService:FirestoreService
-     ) { 
-     }
-
-  ngOnInit() {
+  constructor(
+    public menuController: MenuController,
+    public firestoreService: FirestoreService
+  ) {
     this.loadProductos()
-
   }
+
+  ngOnInit() { }
 
   openMenu() {
     this.menuController.toggle('principal')
   }
 
-  loadProductos(){
-    this.firestoreService.getCollection<Producto>( this.path ).subscribe( res => {
+  loadProductos() {
+    this.firestoreService.getCollection<Producto>(this.path).subscribe(res => {
       this.productos = res
-    } ) 
+    })
   }
 
 }
