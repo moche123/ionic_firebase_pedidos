@@ -1,7 +1,7 @@
 <ion-header>
   <ion-toolbar>
     <ion-title class="subtitulo">
-      Cuenta
+      Carrito
     </ion-title>
     <ion-buttons slot="start">
       <ion-button color="primary" (click)="openMenu()">
@@ -13,7 +13,7 @@
     <ion-buttons slot="end">
 
       <ion-button [routerLink]="['/']" >
-        <ion-icon slot="icon-only" name="storefront-sharp"></ion-icon>
+        <ion-icon slot="icon-only" name="storefront-outline"></ion-icon>
       </ion-button>
 
       <ion-button [routerLink]="['/perfil']" >
@@ -22,18 +22,44 @@
 
     </ion-buttons>
 
-
+    
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
   <!-- <ion-item *ngFor="let producto of productos">
     {{producto.nombre}}
-  </ion-item> -->
+  </ion-item> 
 
-  <!-- <div *ngFor="let producto of productos">
-    <app-producto [producto]=producto ></app-producto>
-  </div> -->
+ <div *ngFor="let producto of productos">
 
+      <app-producto [producto]=producto ></app-producto>
+    </div>
+
+-->
+<div *ngFor="let producto of pedido.productos">
+  <app-itemcarrito [productoPedido]="producto"></app-itemcarrito>
+ </div>
+   
 </ion-content>
   <!-- Carrito de compras -->
+<ion-footer>
+     <ion-grid>
+       <ion-row class="ion-justify-content-center">
+         <ion-col class="normal text-center" size="6" style="border-right: 1px solid #6c757d;">
+             Cantidad: {{cantidad}}
+         </ion-col>
+         <ion-col class="normal text-center" size="6">
+           Total : {{total}}
+        </ion-col>
+       </ion-row>
+       <ion-row>
+         <ion-col>
+          <ion-button (click)="pedir()" expand="full" class="normal" style="color: white ! important">
+            Pedir
+         </ion-button>
+         </ion-col>
+       </ion-row>
+     </ion-grid>
+     
+</ion-footer>

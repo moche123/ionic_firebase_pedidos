@@ -23,7 +23,7 @@ export interface Pedido{
     cliente: Cliente;
     productos:ProductoPedido[];
     precioTotal:number;
-    fecha: Date;
+    fecha: any;
     estado:EstadoPedido;
     valoracion:number
 }
